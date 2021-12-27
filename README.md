@@ -5,8 +5,7 @@
 $ yarn install
 ```
 
-## Create ENV
-Create .env file.
+## Create .env
 ```
 NODE_ENV=development
 PORT=3000
