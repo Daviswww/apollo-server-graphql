@@ -1,5 +1,7 @@
 const helloQueries = {
-    hello: async () => "Hello World!",
+    hello: async () => {
+        return "Hello World!";
+    },
 };
 
 export default helloQueries;

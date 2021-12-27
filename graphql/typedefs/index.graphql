@@ -7,7 +7,7 @@ type Query {
   author(id: ID!): Author
   
   # Hello
-  hello: Hello
+  hello: String!
 }
 
 type Mutation {

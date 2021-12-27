@@ -1,5 +1,5 @@
 # Types
 
 type Hello {
-    word: String!
+    hello: String!
 }
