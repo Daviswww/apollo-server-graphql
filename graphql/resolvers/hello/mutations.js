@@ -1,6 +1,6 @@
 const helloMutations = {
-    createAuthor: async (_, args) => {},
-    updateAuthor: async (_, args) => {},
+    createHello: async (_, args) => {},
+    updateHello: async (_, args) => {},
 };
 
 export default helloMutations;

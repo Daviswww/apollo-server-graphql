@@ -2,7 +2,6 @@
 type Author implements Timestamps { 
   id: ID!
   name: String!
-  publishers: [Publisher]
   
   # Interface required
   createdAt: Date!

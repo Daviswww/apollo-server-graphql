@@ -5,6 +5,7 @@ import { resolvers } from './resolvers';
 import { gql } from 'apollo-server-core';
 
 const gqlFiles = readdirSync(join(__dirname, './typedefs'));
+
 let typeDefsString = '';
 
 gqlFiles.forEach((file) => {
@@ -14,7 +15,6 @@ gqlFiles.forEach((file) => {
 });
 
 const typeDefs = gql(typeDefsString);
-
 
 const schema = makeExecutableSchema({
   typeDefs,
