@@ -11,7 +11,4 @@ const resolvers = {
   },
 };
 
-// console.log(resolvers);
-// export default resolvers;
-
 module.exports = { resolvers };
