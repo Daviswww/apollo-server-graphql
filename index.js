@@ -1,19 +1,24 @@
 import { port } from './config/environment';
 import express from 'express';
 import graphqlServer from './graphql';
+import connectDB from'./db';
 
-const start = async () => {
+const main = async () => {
   try {
+    // Database
+    await connectDB();
+    console.log("Connected to database");
+
+    // Apollo Server
     const app = express();
     await graphqlServer.start();
     graphqlServer.applyMiddleware({ app, path: '/graphql' });
-    app.listen(port, ()=>{
+    app.listen(port, () => {
       console.log(`Server is now running on http://localhost:${port}/graphql`);
     });
-    
   } catch {
-    console.log('Not able to run GraphQL server');
+    console.log('Not able to run GraphQL server !');
   }
 };
 
-start();
+main();
