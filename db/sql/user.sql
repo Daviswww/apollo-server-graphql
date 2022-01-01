@@ -6,5 +6,19 @@ CREATE TABLE IF NOT EXISTS User (
     updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=INNODB;
 
+-- Select
+SELECT * FROM User 
+WHERE user_id=1;
+
+-- Insert
 INSERT INTO User (user_name)
 VALUES ('Davis');
+
+-- Update
+UPDATE User 
+SET user_name = 'kevin'
+WHERE user_id = 1;
+
+-- Delete
+DELETE from User 
+WHERE user_id = 16;

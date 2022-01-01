@@ -1,13 +1,15 @@
-import connectDB from '../../../db';
-import AuthorModel from '../../../db/models/authorModel';
+import AuthorModel from '../../../models/authorModel';
 
 const authorQueries = {
     authors: async (_, args) => {
-        const conn = await connectDB();
-        const rows = await AuthorModel.selectAll(conn);
-        return rows;
+        const users = await AuthorModel.selectAll();
+        return users;
     },
-    author: async (_, args) => {},
+    author: async (_, args) => {
+        const user = await AuthorModel.selectUser(args.id);
+        
+        return user;
+    },
 };
 
 export default authorQueries;
