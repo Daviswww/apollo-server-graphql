@@ -1,14 +1,14 @@
 import { authorQueries, authorMutations } from './author';
-import { helloQueries } from './hello';
+import { versionQueries } from './version';
 
 const resolvers = {
   Query: {
+    ...versionQueries,
     ...authorQueries,
-    ...helloQueries,
   },
   Mutation: {
     ...authorMutations,
   },
 };
 
-module.exports = { resolvers };
+export default resolvers;

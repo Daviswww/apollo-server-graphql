@@ -3,6 +3,8 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const port = process.env.PORT;
+const secret = process.env.SECRET;
+const version = process.env.VERSION;
 
 // You may use this as a boolean value for different situations
 const env = {
@@ -22,4 +24,4 @@ const db = {
 };
 
 
-export { port, env, db };
+export { port, env, secret, db, version };

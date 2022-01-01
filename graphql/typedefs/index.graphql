@@ -2,12 +2,12 @@
 scalar Date
 
 type Query {
+  # Version
+  version: String!
+
   # Author
   authors: [Author]!
   author(id: ID!): Author
-  
-  # Hello
-  hello: String!
 }
 
 type Mutation {

@@ -2,7 +2,7 @@ import { join } from 'path';
 import { readdirSync, readFileSync } from 'fs';
 import { makeExecutableSchema } from '@graphql-tools/schema';
 import { gql } from 'apollo-server-core';
-import { resolvers } from './resolvers';
+import resolvers from './resolvers';
 
 const gqlFiles = readdirSync(join(__dirname, './typedefs'));
 

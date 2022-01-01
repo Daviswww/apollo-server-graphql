@@ -1,9 +1,14 @@
 import { db } from '../config/environment';
 import mysql from 'mysql2/promise';
-let connection_pool;
+
+let connection_pool = null;
 
 const connectDB = async () => {
     try{
+        if(connection_pool != null){
+            console.log("is connected");
+            return await connection_pool;
+        }
         connection_pool = mysql.createPool({
             host: db.host,
             user: db.user,
@@ -11,7 +16,7 @@ const connectDB = async () => {
             database: db.name,
             port: db.port
         });
-        console.log(`1. ${connection_pool}`);
+        console.log("Connected to database");
         return await connection_pool.getConnection();
     }
     catch(error){

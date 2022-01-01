@@ -7,7 +7,6 @@ const main = async () => {
   try {
     // Database
     await connectDB();
-    console.log("Connected to database");
 
     // Apollo Server
     const app = express();

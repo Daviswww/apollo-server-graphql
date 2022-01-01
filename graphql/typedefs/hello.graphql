@@ -1,5 +1,0 @@
-# Types
-
-type Hello {
-    hello: String!
-}
