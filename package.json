@@ -5,12 +5,18 @@
   "license": "MIT",
   "scripts": {
     "dev": "nodemon ./index.js --exec babel-node",
-    "test": "standard --fix"
+    "test": "standard --fix && jest"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ]
   },
   "devDependencies": {
     "@babel/core": "^7.16.7",
     "@babel/node": "^7.16.7",
     "@babel/preset-env": "^7.16.7",
+    "jest": "^27.4.5",
     "nodemon": "^2.0.15"
   },
   "dependencies": {
