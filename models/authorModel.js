@@ -4,9 +4,8 @@ import connectDB from '../db'
 class AuthorModel {
   async selectAll () {
     try {
-      const conn = await connectDB()
       const sql = 'SELECT * FROM User'
-
+      const conn = await connectDB()
       const [rows, fields] = await conn.execute(sql)
 
       return rows
@@ -19,8 +18,8 @@ class AuthorModel {
     const userId = id
 
     try {
-      const conn = await connectDB()
       const sql = `SELECT * FROM User WHERE user_id=${userId};`
+      const conn = await connectDB()
       const [rows, fields] = await conn.execute(sql)
 
       return rows[0]
@@ -34,8 +33,8 @@ class AuthorModel {
     if ('user_name' in args) userName = args.user_name
 
     try {
-      const conn = await connectDB()
       const sql = `INSERT INTO User (user_name) VALUES ('${userName}')`
+      const conn = await connectDB()
       const [rows, fields] = await conn.execute(sql)
 
       return rows.insertId
@@ -49,8 +48,8 @@ class AuthorModel {
     const userName = author.user_name
 
     try {
-      const conn = await connectDB()
       const sql = `UPDATE User SET user_name = '${userName}' WHERE user_id = ${userId};`
+      const conn = await connectDB()
       const [rows, fields] = await conn.execute(sql)
 
       return rows
@@ -63,8 +62,8 @@ class AuthorModel {
     const userId = id
 
     try {
-      const conn = await connectDB()
       const sql = `DELETE from User WHERE user_id = ${userId};`
+      const conn = await connectDB()
       const [rows, fields] = await conn.query(sql)
 
       return `Delete user ${id} successful!`

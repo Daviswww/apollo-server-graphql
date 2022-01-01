@@ -22,13 +22,18 @@ DB_USER=root
 DB_PASS=1234
 
 ```
-## Run server
+## Getting Started
+### Run 
 ```bash
 $ yarn dev
 ```
 
-## MySql
+### Test
+```bash
+$ yarn test
+```
 
+## MySql
 ```
 $ mysql
 ```
@@ -39,6 +44,13 @@ mysql> ALTER USER 'user-name'@'localhost' IDENTIFIED BY 'NEW_USER_PASSWORD';
 ```
 
 ### Creating and Selecting a Database
+
+#### Creating
 ```
 mysql> CREATE DATABASE menagerie;
+```
+
+#### Selecting
+```
+mysql> USE menagerie;
 ```
