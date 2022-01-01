@@ -5,18 +5,22 @@
 $ yarn install
 ```
 
-## Create .env
+## Create environment
+Environment file example.
 ```
-# Apollo Server
+# .env
+VERSION=1.0.0
 NODE_ENV=development
 PORT=3000
+SECRET=
 
 # Database
-DB_HOST=host
-DB_PORT=prot
-DB_NAME=database
-DB_USER=admin
-DB_PASS=0000
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_NAME=db
+DB_USER=root
+DB_PASS=1234
+
 ```
 ## Run server
 ```bash
