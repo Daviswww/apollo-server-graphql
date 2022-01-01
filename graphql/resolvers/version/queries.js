@@ -1,9 +1,9 @@
-import { version } from '../../../config/environment';
+import { version } from '../../../config/environment'
 
 const versionQueries = {
-    version: async () => {
-        return version;
-    },
+  version: async () => {
+    return version
+  }
 }
 
-export default versionQueries;
+export default versionQueries

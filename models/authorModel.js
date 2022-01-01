@@ -1,78 +1,78 @@
-import connectDB from '../db';
+import connectDB from '../db'
 
+/* eslint-disable no-unused-vars */
 class AuthorModel {
-  async selectAll() {
+  async selectAll () {
     try {
-      const conn = await connectDB();
-      const sql = `SELECT * FROM User`;
-      let [rows, fields] = await conn.execute(sql);
+      const conn = await connectDB()
+      const sql = 'SELECT * FROM User'
 
-      return rows;
-    } catch(err){
-      console.log(err);
-    }    
-  } 
+      const [rows, fields] = await conn.execute(sql)
 
-  async selectUser(id) {
-    let user_id = id;
-
-    try{
-      const conn = await connectDB();
-      const sql = `SELECT * FROM User WHERE user_id=${user_id};`;
-      let [rows, fields] = await conn.execute(sql);
-  
-      return rows[0];
-    }catch(err){
-      console.log(err);
+      return rows
+    } catch (err) {
+      console.log(err)
     }
   }
 
-  async createUser(args) {
-    let user_name = "";
-    if ("user_name" in args) user_name = args.user_name;
+  async selectUser (id) {
+    const userId = id
 
-    try{
-      const conn = await connectDB();
-      const sql = `INSERT INTO User (user_name) VALUES ('${user_name}')`;
-      let [rows, fields] = await conn.execute(sql);
-  
-      return rows.insertId;
-    } catch(err){
-      console.log(err);
+    try {
+      const conn = await connectDB()
+      const sql = `SELECT * FROM User WHERE user_id=${userId};`
+      const [rows, fields] = await conn.execute(sql)
+
+      return rows[0]
+    } catch (err) {
+      console.log(err)
     }
   }
 
-  async updateUser(args, author) {
-    let user_id = args.id;
-    let user_name = author.user_name;
+  async createUser (args) {
+    let userName = ''
+    if ('user_name' in args) userName = args.user_name
 
-    try{
-      const conn = await connectDB();
-      const sql = `UPDATE User SET user_name = '${user_name}' WHERE user_id = ${user_id};`;
-      let [rows, fields] = await conn.execute(sql);
+    try {
+      const conn = await connectDB()
+      const sql = `INSERT INTO User (user_name) VALUES ('${userName}')`
+      const [rows, fields] = await conn.execute(sql)
 
-      return rows;
-    } catch(err) {
-      console.log(err);
+      return rows.insertId
+    } catch (err) {
+      console.log(err)
     }
   }
 
-  async deleteUser(id) {
-    let user_id = id;
+  async updateUser (args, author) {
+    const userId = args.id
+    const userName = author.user_name
 
-    try{
-      const conn = await connectDB();
-      const sql = `DELETE from User WHERE user_id = ${user_id};`;
-      let [rows, fields] = await conn.query(sql);
+    try {
+      const conn = await connectDB()
+      const sql = `UPDATE User SET user_name = '${userName}' WHERE user_id = ${userId};`
+      const [rows, fields] = await conn.execute(sql)
 
-      return `Delete user ${id} successful!`;
-    } catch(err) {
-      console.log(err);
+      return rows
+    } catch (err) {
+      console.log(err)
     }
+  }
 
+  async deleteUser (id) {
+    const userId = id
 
-    return rows;
+    try {
+      const conn = await connectDB()
+      const sql = `DELETE from User WHERE user_id = ${userId};`
+      const [rows, fields] = await conn.query(sql)
+
+      return `Delete user ${id} successful!`
+    } catch (err) {
+      console.log(err)
+    }
   }
 }
+/* eslint-disable no-unused-vars */
 
-export default new AuthorModel();
+export default new AuthorModel()

@@ -1,1 +1,1 @@
-export { default as versionQueries } from './queries';
+export { default as versionQueries } from './queries'
