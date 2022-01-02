@@ -9,7 +9,6 @@ const main = async () => {
     await connectDB()
 
     // Apollo Server
-
     await graphqlServer.start()
     graphqlServer.applyMiddleware({ app, path: '/graphql' })
 
