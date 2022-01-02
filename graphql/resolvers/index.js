@@ -1,5 +1,6 @@
 import { authorQueries, authorMutations } from './author'
 import { versionQueries } from './version'
+import { counterSubscription } from './counter'
 
 const resolvers = {
   Query: {
@@ -8,6 +9,9 @@ const resolvers = {
   },
   Mutation: {
     ...authorMutations
+  },
+  Subscription: {
+    ...counterSubscription
   }
 }
 

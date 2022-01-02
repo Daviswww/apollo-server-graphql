@@ -4,27 +4,27 @@ import connectDB from '../db'
 class AuthorModel {
   async selectAll () {
     try {
-      const sql = 'SELECT * FROM User'
+      const sql = 'SELECT * FROM User;'
       const conn = await connectDB()
       const [rows, fields] = await conn.execute(sql)
 
       return rows
     } catch (err) {
-      console.log(err)
+      console.log(`[ERROR] AuthorModel.selectAll :\n ${err}`)
     }
   }
 
-  async selectUser (id) {
-    const userId = id
+  async selectUser (userId) {
+    const _userId = userId
 
     try {
-      const sql = `SELECT * FROM User WHERE user_id=${userId};`
+      const sql = `SELECT * FROM User WHERE user_id=${_userId};`
       const conn = await connectDB()
       const [rows, fields] = await conn.execute(sql)
 
       return rows[0]
     } catch (err) {
-      console.log(err)
+      console.log(`[ERROR] AuthorModel.selectUser :\n ${err}`)
     }
   }
 
@@ -33,13 +33,13 @@ class AuthorModel {
     if ('user_name' in args) userName = args.user_name
 
     try {
-      const sql = `INSERT INTO User (user_name) VALUES ('${userName}')`
+      const sql = `INSERT INTO User (user_name) VALUES ('${userName}');`
       const conn = await connectDB()
       const [rows, fields] = await conn.execute(sql)
 
       return rows.insertId
     } catch (err) {
-      console.log(err)
+      console.log(`[ERROR] AuthorModel.createUser :\n ${err}`)
     }
   }
 
@@ -54,21 +54,21 @@ class AuthorModel {
 
       return rows
     } catch (err) {
-      console.log(err)
+      console.log(`[ERROR] AuthorModel.updateUser :\n ${err}`)
     }
   }
 
-  async deleteUser (id) {
-    const userId = id
+  async deleteUser (userId) {
+    const _userId = userId
 
     try {
-      const sql = `DELETE from User WHERE user_id = ${userId};`
+      const sql = `DELETE from User WHERE user_id = ${_userId};`
       const conn = await connectDB()
       const [rows, fields] = await conn.query(sql)
 
-      return `Delete user ${id} successful!`
+      return `Delete user ${_userId} successful!`
     } catch (err) {
-      console.log(err)
+      console.log(`[ERROR] AuthorModel.deleteUser :\n ${err}`)
     }
   }
 }

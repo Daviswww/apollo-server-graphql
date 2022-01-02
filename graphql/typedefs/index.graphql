@@ -8,6 +8,9 @@ type Query {
   # Author
   authors: [Author]!
   author(id: ID!): Author
+
+  # Counter
+  counter: Int
 }
 
 type Mutation {
@@ -15,4 +18,12 @@ type Mutation {
   createAuthor(author: AuthorCreateInput!): Author!
   updateAuthor(id: ID!, author: AuthorUpdateInput!): Author!
   deleteAuthor(id: ID!): String!
+
+  # Counter
+  updateCounter(nmuber: Int!) : Int
+}
+
+type Subscription {
+  # Counter
+  onUpdateCounter: Int
 }
