@@ -1,6 +1,10 @@
+import counterModel from '../../../models/counterModel'
+
 const counterQueries = {
   counter: async () => {
-    return 0
+    const count = await counterModel.selectCount(1)
+
+    return count
   }
 }
 

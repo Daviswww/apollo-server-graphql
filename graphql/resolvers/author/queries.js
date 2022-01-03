@@ -6,7 +6,7 @@ const authorQueries = {
     return users
   },
   author: async (_, args) => {
-    const user = await AuthorModel.selectUser(args.id)
+    const user = await AuthorModel.selectUser(args.userId)
 
     return user
   }

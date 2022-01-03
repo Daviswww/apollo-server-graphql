@@ -1,0 +1,20 @@
+-- Counter Table
+CREATE TABLE IF NOT EXISTS Count (
+    count_id INT AUTO_INCREMENT PRIMARY KEY,
+    count INT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=INNODB;
+
+-- Select
+SELECT * FROM Count 
+WHERE count_id=1;
+
+-- Update
+UPDATE Count 
+SET count=0
+WHERE count_id=1;
+
+-- Insert
+INSERT INTO Count (count)
+VALUES (0);

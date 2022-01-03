@@ -1,13 +1,14 @@
 import pubsub from '../pubsub'
-const counter = 0
+import counterModel from '../../../models/counterModel'
+
 const counterMutations = {
   updateCounter: async (_, args) => {
-    try {
-      pubsub.publish('ON_UPDATE_COUNTER', { onUpdateCounter: counter + args.number })
-      return counter
-    } catch (err) {
-      console.log(err)
-    }
+    const counter = await counterModel.selectCount(args.countId) + args.value
+
+    await counterModel.updateCount(args, counter)
+    pubsub.publish('ON_UPDATE_COUNTER', { onUpdateCounter: counter })
+
+    return counter
   }
 }
 

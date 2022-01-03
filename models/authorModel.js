@@ -44,15 +44,15 @@ class AuthorModel {
   }
 
   async updateUser (args, author) {
-    const userId = args.id
+    const userId = args.userId
     const userName = author.user_name
-
+    console.log(args)
     try {
       const sql = `UPDATE User SET user_name = '${userName}' WHERE user_id = ${userId};`
       const conn = await connectDB()
       const [rows, fields] = await conn.execute(sql)
 
-      return rows
+      return userId
     } catch (err) {
       console.log(`[ERROR] AuthorModel.updateUser :\n ${err}`)
     }

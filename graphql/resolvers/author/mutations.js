@@ -14,7 +14,7 @@ const authorMutations = {
     return user
   },
   deleteAuthor: async (_, args) => {
-    const req = await AuthorModel.deleteUser(args.id)
+    const req = await AuthorModel.deleteUser(args.userId)
 
     return req
   }
