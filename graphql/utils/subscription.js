@@ -1,7 +1,7 @@
 import { execute, subscribe } from 'graphql'
 import { SubscriptionServer } from 'subscriptions-transport-ws'
-import schema from './schema'
 import { httpServer } from '../../app'
+import schema from './schema'
 
 const subscriptionServer = SubscriptionServer.create({
   schema,

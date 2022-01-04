@@ -1,7 +1,7 @@
+import { httpServer, app } from './app'
 import { port } from './config/environment'
 import graphqlServer from './graphql'
 import connectDB from './db'
-import { httpServer, app } from './app'
 
 const main = async () => {
   try {
