@@ -10,7 +10,7 @@ type Query {
   author(userId: ID!): Author
 
   # Counter
-  counter: Int
+  counter(countId: ID!): Int
 }
 
 type Mutation {
@@ -20,7 +20,7 @@ type Mutation {
   deleteAuthor(userId: ID!): String!
 
   # Counter
-  updateCounter(countId: ID!, value: Int!) : Int
+  updateCounter(countId: ID!, counterValue: Int!) : Int
 }
 
 type Subscription {

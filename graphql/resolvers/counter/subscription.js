@@ -1,4 +1,4 @@
-import pubsub from '../pubsub'
+import pubsub from '../../utils/pubsub'
 
 const counterSubscription = {
   onUpdateCounter: {
