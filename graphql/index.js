@@ -1,5 +1,7 @@
 import { ApolloServer } from 'apollo-server-express'
 import { env, secret } from '../config/environment'
+import { httpServer } from '../app'
+import { ApolloServerPluginDrainHttpServer } from 'apollo-server-core'
 import schema from './utils/schema'
 import subscriptionServer from './utils/subscription'
 
@@ -15,7 +17,7 @@ const apolloServer = new ApolloServer({
         }
       }
     }
-  }]
+  }, ApolloServerPluginDrainHttpServer({ httpServer })]
 })
 
 export default apolloServer
