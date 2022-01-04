@@ -29,11 +29,11 @@ class AuthorModel {
   }
 
   async createUser (args) {
-    let userName = ''
-    if ('user_name' in args) userName = args.user_name
+    let _userName = ''
+    if ('user_name' in args) _userName = args.user_name
 
     try {
-      const sql = `INSERT INTO User (user_name) VALUES ('${userName}');`
+      const sql = `INSERT INTO User (user_name) VALUES ('${_userName}');`
       const conn = await connectDB()
       const [rows, fields] = await conn.execute(sql)
 
@@ -44,11 +44,11 @@ class AuthorModel {
   }
 
   async updateUser (args, author) {
-    const userId = args.userId
-    const userName = author.user_name
-    console.log(args)
+    const _userId = args.userId
+    const _userName = author.user_name
+
     try {
-      const sql = `UPDATE User SET user_name = '${userName}' WHERE user_id = ${userId};`
+      const sql = `UPDATE User SET user_name = '${_userName}' WHERE user_id = ${_userId};`
       const conn = await connectDB()
       const [rows, fields] = await conn.execute(sql)
 

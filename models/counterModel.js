@@ -17,11 +17,11 @@ class CounterModel {
   }
 
   async updateCount (args, counter) {
-    const countId = args.countId
+    const _countId = args.countId
     const _counter = counter
 
     try {
-      const sql = `UPDATE Count SET count=${_counter} WHERE count_id=${countId};`
+      const sql = `UPDATE Count SET count=${_counter} WHERE count_id=${_countId};`
       const conn = await connectDB()
       const [rows, fields] = await conn.execute(sql)
     } catch (err) {

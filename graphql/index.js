@@ -7,6 +7,7 @@ import subscriptionServer from './utils/subscription'
 
 const apolloServer = new ApolloServer({
   schema,
+  tracing: true,
   secret: secret,
   playground: env.development,
   plugins: [{
