@@ -1,3 +1,4 @@
+// https://github.com/sidorares/node-mysql2
 import { db } from '../config/environment'
 import mysql from 'mysql2/promise'
 

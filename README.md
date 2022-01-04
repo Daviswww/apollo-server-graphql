@@ -23,17 +23,31 @@ DB_PASS=1234
 
 ```
 ## Getting Started
-### Run 
+### Run Server
 ```bash
 $ yarn dev
 ```
 
 ### Test
+
 ```bash
 $ yarn test
 ```
+or
+#### Standard
+https://standardjs.com/
+```bash
+yarn standard --fix
+```
+
+#### Jest
+https://jestjs.io/
+```bash
+yarn jest
+```
 
 ## MySql
+https://www.mysql.com/
 ```
 $ mysql
 ```
