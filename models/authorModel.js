@@ -18,7 +18,7 @@ class AuthorModel {
     const _userId = userId
 
     try {
-      const sql = `SELECT * FROM User WHERE user_id=${_userId};`
+      const sql = `SELECT * FROM User WHERE userId=${_userId};`
       const conn = await connectDB()
       const [rows, fields] = await conn.execute(sql)
 
@@ -30,10 +30,10 @@ class AuthorModel {
 
   async createUser (args) {
     let _userName = ''
-    if ('user_name' in args) _userName = args.user_name
+    if ('userName' in args) _userName = args.userName
 
     try {
-      const sql = `INSERT INTO User (user_name) VALUES ('${_userName}');`
+      const sql = `INSERT INTO User (userName) VALUES ('${_userName}');`
       const conn = await connectDB()
       const [rows, fields] = await conn.execute(sql)
 
@@ -45,14 +45,14 @@ class AuthorModel {
 
   async updateUser (args, author) {
     const _userId = args.userId
-    const _userName = author.user_name
+    const _userName = author.userName
 
     try {
-      const sql = `UPDATE User SET user_name = '${_userName}' WHERE user_id = ${_userId};`
+      const sql = `UPDATE User SET userName = '${_userName}' WHERE userId = ${_userId};`
       const conn = await connectDB()
       const [rows, fields] = await conn.execute(sql)
 
-      return userId
+      return _userId
     } catch (err) {
       console.log(`[ERROR] AuthorModel.updateUser :\n ${err}`)
     }
@@ -62,7 +62,7 @@ class AuthorModel {
     const _userId = userId
 
     try {
-      const sql = `DELETE from User WHERE user_id = ${_userId};`
+      const sql = `DELETE from User WHERE userId = ${_userId};`
       const conn = await connectDB()
       const [rows, fields] = await conn.query(sql)
 
@@ -72,6 +72,5 @@ class AuthorModel {
     }
   }
 }
-/* eslint-disable no-unused-vars */
 
 export default new AuthorModel()

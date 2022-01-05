@@ -3,7 +3,8 @@ import { SubscriptionServer } from 'subscriptions-transport-ws'
 import { httpServer } from '../../app'
 import schema from './schema'
 
-const subscriptionServer = SubscriptionServer.create({
+/* eslint-disable new-cap */
+const subscriptionServer = new SubscriptionServer.create({
   schema,
   execute,
   subscribe

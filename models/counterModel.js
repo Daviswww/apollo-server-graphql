@@ -6,7 +6,7 @@ class CounterModel {
     const _countId = countId
 
     try {
-      const sql = `SELECT * FROM Count WHERE count_id=${_countId};`
+      const sql = `SELECT * FROM Count WHERE countId=${_countId};`
       const conn = await connectDB()
       const [rows, fields] = await conn.execute(sql)
 
@@ -21,7 +21,7 @@ class CounterModel {
     const _counter = counter
 
     try {
-      const sql = `UPDATE Count SET count=${_counter} WHERE count_id=${_countId};`
+      const sql = `UPDATE Count SET count=${_counter} WHERE countId=${_countId};`
       const conn = await connectDB()
       const [rows, fields] = await conn.execute(sql)
     } catch (err) {
@@ -29,6 +29,5 @@ class CounterModel {
     }
   }
 }
-/* eslint-disable no-unused-vars */
 
 export default new CounterModel()

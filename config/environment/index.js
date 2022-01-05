@@ -6,7 +6,7 @@ const port = process.env.PORT
 const secret = process.env.SECRET
 const version = process.env.VERSION
 
-// You may use this as a boolean value for different situations
+// Different situations
 const env = {
   development: process.env.NODE_ENV === 'development',
   test: process.env.NODE_ENV === 'test',

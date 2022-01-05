@@ -1,18 +1,18 @@
 # Types
 type Author implements Timestamps { 
-  user_id: ID!
-  user_name: String!
+  userId: ID!
+  userName: String!
 
   # Interface required
-  created_at: Date!
-  updated_at: Date!
+  createdAt: Date!
+  updatedAt: Date!
 }
 
 # Inputs
 input AuthorCreateInput {
-  user_name: String!
+  userName: String!
 }
 
 input AuthorUpdateInput {
-  user_name: String
+  userName: String
 }

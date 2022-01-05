@@ -1,9 +1,9 @@
 # Types
 type Counter implements Timestamps { 
-  count_id: ID!
+  countId: ID!
   count: Int!
 
   # Interface required
-  created_at: Date!
-  updated_at: Date!
+  createdAt: Date!
+  updatedAt: Date!
 }
