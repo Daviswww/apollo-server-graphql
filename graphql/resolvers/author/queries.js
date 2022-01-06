@@ -3,6 +3,7 @@ import AuthorModel from '../../../models/authorModel'
 const authorQueries = {
   authors: async (_, args) => {
     const users = await AuthorModel.selectAll()
+
     return users
   },
   author: async (_, args) => {

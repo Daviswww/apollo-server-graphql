@@ -42,6 +42,8 @@ yarn standard --fix
 
 #### Jest
 https://jestjs.io/
+
+https://jestjs.io/docs/expect
 ```bash
 yarn jest
 ```

@@ -2,11 +2,11 @@
 import { db } from '../config/environment'
 import mysql from 'mysql2/promise'
 
-let connectionPool = null
+let connectionPool
 
 const connectDB = async () => {
   try {
-    if (connectionPool != null) {
+    if (connectionPool !== undefined) {
       return await connectionPool
     }
     connectionPool = mysql.createPool({
@@ -16,8 +16,8 @@ const connectDB = async () => {
       database: db.name,
       port: db.port
     })
-    console.log('Connected to database')
-    return await connectionPool.getConnection()
+
+    return connectionPool
   } catch (err) {
     console.log(err)
   }
