@@ -44,10 +44,20 @@ yarn standard --fix
 https://jestjs.io/
 
 https://jestjs.io/docs/expect
+
+https://pjchender.dev/npm/npm-jest/
 ```bash
 yarn jest
 ```
 
+Jest config
+```
+  "jest": {
+    "verbose": true,
+    // 覆蓋率
+    "collectCoverage": true
+  },
+```
 ## MySql
 https://www.mysql.com/
 ```

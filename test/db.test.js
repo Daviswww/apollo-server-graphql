@@ -1,6 +1,6 @@
 import connectDB from '../db'
 
-describe('Database', () => {
+describe('[Database]', () => {
   let conn
 
   beforeEach(async () => {

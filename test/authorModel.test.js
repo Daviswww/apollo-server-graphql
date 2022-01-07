@@ -12,6 +12,12 @@ afterAll(async () => {
 })
 
 describe('[AuthorModel]', () => {
+  const schema = {
+    userId: expect.any(Number),
+    userName: expect.any(String),
+    createdAt: expect.anything(),
+    updatedAt: expect.anything()
+  }
   const createdUserName = 'Alice'
   const updatedUserName = 'Bob'
   let _userId
@@ -26,6 +32,13 @@ describe('[AuthorModel]', () => {
     expect(author.userName).toEqual(createdUserName)
   })
 
+  test('Select All User', async () => {
+    const users = await AuthorModel.selectAll(conn)
+
+    // Check Type
+    expect(users).toMatchObject(expect.any(Array))
+  })
+
   test('Select User', async () => {
     const users = await AuthorModel.selectAll(conn)
     const user = await AuthorModel.selectUser(conn, _userId)
@@ -33,7 +46,7 @@ describe('[AuthorModel]', () => {
     expect(users).not.toBeUndefined()
 
     // Check Type
-    expect(author.userName).toEqual(updatedUserName)
+    expect(user).toMatchObject(schema)
 
     // Check Content
     expect(user.userName).toEqual(createdUserName)

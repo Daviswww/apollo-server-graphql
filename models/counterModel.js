@@ -12,7 +12,7 @@ class CounterModel {
 
       return rows[0].count
     } catch (err) {
-      console.log(`[ERROR] CounterModel.selectCount :\n ${err}`)
+      console.error(`[ERROR] CounterModel.selectCount :\n ${err}`)
     }
   }
 
@@ -25,7 +25,7 @@ class CounterModel {
       const conn = await connectDB()
       const [rows, fields] = await conn.execute(sql)
     } catch (err) {
-      console.log(`[ERROR] CounterModel.updateCount :\n ${err}`)
+      console.error(`[ERROR] CounterModel.updateCount :\n ${err}`)
     }
   }
 }

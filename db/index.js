@@ -19,7 +19,7 @@ const connectDB = async () => {
 
     return connectionPool
   } catch (err) {
-    console.log(err)
+    console.error(err)
   }
 }
 
