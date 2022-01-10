@@ -1,30 +1,25 @@
 import AuthorModel from '../models/authorModel'
-import connectDB from '../db'
-let conn
+import connectPool from '../db'
 
-beforeAll(async () => {
-  conn = await connectDB()
-  await conn.getConnection()
-})
 
-afterAll(async () => {
-  await conn.end()
+afterAll(()=>{
+  connectPool.end()
 })
 
 describe('[AuthorModel]', () => {
   const schema = {
     userId: expect.any(Number),
     userName: expect.any(String),
-    createdAt: expect.anything(),
-    updatedAt: expect.anything()
+    createdAt: expect.any(Date),
+    updatedAt: expect.any(Date)
   }
   const createdUserName = 'Alice'
   const updatedUserName = 'Bob'
   let _userId
 
   test('Create User', async () => {
-    _userId = await AuthorModel.createUser(conn, { userName: createdUserName })
-    const author = await AuthorModel.selectUser(conn, _userId)
+    _userId = await AuthorModel.createUser(connectPool, { userName: createdUserName })
+    const author = await AuthorModel.selectUser(connectPool, _userId)
     // Check Data
     expect(author).not.toBeUndefined()
 
@@ -33,15 +28,15 @@ describe('[AuthorModel]', () => {
   })
 
   test('Select All User', async () => {
-    const users = await AuthorModel.selectAll(conn)
+    const users = await AuthorModel.selectAll(connectPool)
 
     // Check Type
     expect(users).toMatchObject(expect.any(Array))
   })
 
   test('Select User', async () => {
-    const users = await AuthorModel.selectAll(conn)
-    const user = await AuthorModel.selectUser(conn, _userId)
+    const users = await AuthorModel.selectAll(connectPool)
+    const user = await AuthorModel.selectUser(connectPool, _userId)
     // Check Data
     expect(users).not.toBeUndefined()
 
@@ -53,8 +48,8 @@ describe('[AuthorModel]', () => {
   })
 
   test('Update User', async () => {
-    _userId = await AuthorModel.updateUser(conn, { userId: _userId }, { userName: updatedUserName })
-    const author = await AuthorModel.selectUser(conn, _userId)
+    _userId = await AuthorModel.updateUser(connectPool, { userId: _userId }, { userName: updatedUserName })
+    const author = await AuthorModel.selectUser(connectPool, _userId)
     // Check Data
     expect(author).not.toBeUndefined()
 
@@ -63,8 +58,8 @@ describe('[AuthorModel]', () => {
   })
 
   test('Delete User', async () => {
-    const msg = await AuthorModel.deleteUser(conn, _userId)
-    const author = await AuthorModel.selectUser(conn, _userId)
+    const msg = await AuthorModel.deleteUser(connectPool, _userId)
+    const author = await AuthorModel.selectUser(connectPool, _userId)
     // Check Data
     expect(author).toBeUndefined()
 

@@ -54,7 +54,6 @@ Jest config
 ```
   "jest": {
     "verbose": true,
-    // 覆蓋率
     "collectCoverage": true
   },
 ```

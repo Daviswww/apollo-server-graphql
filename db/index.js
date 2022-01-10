@@ -4,10 +4,10 @@ import mysql from 'mysql2/promise'
 
 let connectionPool
 
-const connectDB = async () => {
+const pool = () => {
   try {
     if (connectionPool !== undefined) {
-      return await connectionPool
+      return connectionPool
     }
     connectionPool = mysql.createPool({
       host: db.host,
@@ -16,11 +16,10 @@ const connectDB = async () => {
       database: db.name,
       port: db.port
     })
-
     return connectionPool
   } catch (err) {
     console.error(err)
   }
 }
 
-export default connectDB
+export default pool()

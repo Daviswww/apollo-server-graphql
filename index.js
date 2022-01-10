@@ -1,13 +1,13 @@
 import { httpServer, app } from './app'
 import { port } from './config/environment'
 import graphqlServer from './graphql'
-import connectDB from './db'
+import connectPool from './db'
 
 const main = async () => {
   try {
     // Database
-    await connectDB()
-
+    connectPool
+    
     // Apollo Server
     await graphqlServer.start()
     graphqlServer.applyMiddleware({ app, path: '/graphql' })
